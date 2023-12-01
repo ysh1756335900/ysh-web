@@ -12,7 +12,7 @@ import { withRouter } from 'react-router-dom';
 import { login, register } from '@/store/actions';
 import logo from "@/assets/logo_2.png";
 import '@/styles/login.less';
-import { validUserName, validPass } from '@/utils/valid';
+import { validLoginName, validPass } from '@/utils/valid';
 import DocumentTitle from 'react-document-title';
 
 interface IProps {
@@ -110,7 +110,7 @@ class Login extends React.Component<IProps, IState> {
         const { login, history } = this.props; 
         const { formLogin, checked } = this.state;
 
-        if (!validUserName(formLogin.loginName)) {
+        if (!validLoginName(formLogin.loginName)) {
             message.error('请输入正确的邮箱/手机号');
             return false;
         }
@@ -152,7 +152,7 @@ class Login extends React.Component<IProps, IState> {
         const { register, history } = this.props; 
         const { formRegister } = this.state;
 
-        if (!validUserName(formRegister.loginName)) {
+        if (!validLoginName(formRegister.loginName)) {
             message.error("请输入正确的邮箱/手机号");
             return false;
         } else if (!validPass(formRegister.userPwd)) {

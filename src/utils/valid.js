@@ -12,7 +12,7 @@ export function validPass(val) {
   // return /^.{6,16}$/.test(val);
 }
 
-export function validUserName(name) {
+export function validLoginName(name) {
   return validEmail(name) || validPhone(name);
 }
 
@@ -93,7 +93,7 @@ export function timeFromNow(value) {
 export default {
   validEmail,
   validPhone,
-  validUserName,
+  validLoginName,
   validCode,
   validPass,
   loginName,
