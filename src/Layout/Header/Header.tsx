@@ -144,7 +144,7 @@ const Header = () => {
             shape="circle"
             size="default"
             onClick={() => {
-              window.open('https://github.com/code-magic-record/react-arco-admin', '_blank')
+              window.open('https://github.com/code-magic-record/ysh-web', '_blank')
             }}
           >
             <Avatar size={24}>

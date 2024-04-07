@@ -1,9 +1,8 @@
-
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlguin = require('copy-webpack-plugin') // 拷贝静态资源到public目录下
 const webpack = require('webpack')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const rootDir = path.resolve(__dirname, '..')
 const getClientEnvironment = require('./env')
 const env = getClientEnvironment()
@@ -12,19 +11,19 @@ module.exports = {
   target: 'web',
   entry: {
     index: path.join(rootDir, 'template/js/index.js'),
-    app: path.resolve(rootDir, 'src/index.tsx')
+    app: path.resolve(rootDir, 'src/index.tsx'),
   },
   output: {
     filename: 'js/[name].[chunkhash:4].js',
     path: path.resolve(rootDir, 'dist'),
     // publicPath: 'https://oss.yaogeng.top/prod/web/reactArcoAdmin',
-    publicPath: process.env.npm_lifecycle_event === 'deploy' ? 'https://code-magic-record.github.io/react-arco-admin/' : '/',
+    publicPath: process.env.npm_lifecycle_event === 'deploy' ? 'https://code-magic-record.github.io/ysh-web/' : '/',
     clean: true, // 清空打包旧文件
   },
   resolve: {
     alias: {
       '@': path.resolve(rootDir, 'src'),
-      'src': path.resolve(rootDir, 'src')
+      src: path.resolve(rootDir, 'src'),
     },
     extensions: ['.tsx', '.ts', '.js', '.jsx', 'css', 'less', '.json'],
   },
@@ -60,7 +59,7 @@ module.exports = {
               },
             },
           },
-        ]
+        ],
       },
       {
         test: /\.less$/i,
@@ -76,9 +75,9 @@ module.exports = {
             options: {
               modules: {
                 auto: (resourcePath) => resourcePath.endsWith('.module.less'),
-                localIdentName: '[local]___[hash:base64:5]'
-              }
-            }
+                localIdentName: '[local]___[hash:base64:5]',
+              },
+            },
           },
           {
             loader: 'less-loader',
@@ -87,7 +86,7 @@ module.exports = {
                 modifyVars: {
                   'arcoblue-6': '#873bf4',
                 },
-                javascriptEnabled: true
+                javascriptEnabled: true,
               },
             },
           },
@@ -138,8 +137,8 @@ module.exports = {
       compilationSuccessInfo: {
         // messages: [`You application is running here ${env.stringified['process.env'].REACT_APP_SERVER_DOMAIN}`],
         messages: ['You application is running here http://localhost:8080'],
-        notes: ['successful 🚀']
+        notes: ['successful 🚀'],
       },
     }),
-  ]
+  ],
 }
